@@ -1,4 +1,6 @@
 func removeDuplicates(nums []int) int {
+    runtime.GC()
+    
     uniqueNumIndex := 1
     currNum := nums[0]
 
