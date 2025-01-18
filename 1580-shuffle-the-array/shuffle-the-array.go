@@ -1,19 +1,12 @@
-// уже лучше, но недостаточно хорошо 
+// ок
+// успел забыть, что  append к make([]int, len(nums) будет добавлять элементы "сверху"
 
 func shuffle(nums []int, n int) []int {
-    a1, a2 := make([]int, n), make([]int, n)
-    copy(a1, nums[:n])
-    copy(a2, nums[n:])
-    index := 0
+    res := make([]int, 0, len(nums))
 
-    for i := 0; i < len(nums); i++ {
-        if i % 2 == 0 {
-            nums[i] = a1[index]
-            continue
-        }
-        nums[i] = a2[index]
-        index++ 
+    for i := 0; i < n; i++ {
+        res = append(res, nums[i], nums[n+i])
     }
 
-    return nums
+    return res
 }
