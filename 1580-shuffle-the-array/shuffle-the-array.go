@@ -1,3 +1,5 @@
+// решение максимально в лоб, мне максимально не нравится
+
 func shuffle(nums []int, n int) []int {
     res := make([]int, len(nums))
     a1 := nums[:n]
@@ -14,5 +16,5 @@ func shuffle(nums []int, n int) []int {
     }
 
     return res
-     
+
 }
