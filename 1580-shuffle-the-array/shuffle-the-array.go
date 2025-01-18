@@ -1,20 +1,19 @@
-// решение максимально в лоб, мне максимально не нравится
+// уже лучше, но недостаточно хорошо 
 
 func shuffle(nums []int, n int) []int {
-    res := make([]int, len(nums))
-    a1 := nums[:n]
-    a2 := nums[n:]
+    a1, a2 := make([]int, n), make([]int, n)
+    copy(a1, nums[:n])
+    copy(a2, nums[n:])
     index := 0
 
     for i := 0; i < len(nums); i++ {
         if i % 2 == 0 {
-            res[i] = a1[index]
+            nums[i] = a1[index]
             continue
         }
-        res[i] = a2[index]
+        nums[i] = a2[index]
         index++ 
     }
 
-    return res
-
+    return nums
 }
