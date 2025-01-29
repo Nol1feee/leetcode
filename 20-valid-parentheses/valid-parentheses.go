@@ -21,11 +21,7 @@ func isValid(s string) bool {
 		}
 	}
 
-    if len(st.s) != 0 {
-        return false
-    }
-
-	return true
+	return len(st.s) == 0
 }
 
 type stack struct {
