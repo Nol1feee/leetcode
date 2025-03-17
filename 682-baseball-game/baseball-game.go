@@ -1,29 +1,35 @@
+// что требуется:
+//   - проитерироваться по массиву, выполняя заданные операции, после чего вернуть сумму эллементов
+// как решить:
+//   - очевидно будет удобен switch для ветвлений по операциям + необходим доступ ко всем элементам
+// итог:
+//   - мб стоит переписать на type Stack sturct с методами push/pop? Базовая/простая задача, тоже можно на собес
+
 func calPoints(operations []string) int {
-    res := make([]int, 0, len(operations))
+    s := make([]int, 0, len(operations))
+
     for _, v := range operations {
-        res = push(res, v, len(res))
+        switch v {
+            case "D":
+                s = append(s, s[len(s)-1] * 2)
+            case "C":
+                s = s[:len(s)-1]
+            case "+":
+                s = append(s, s[len(s)-1] + s[len(s)-2])
+            default:
+                num, _ := strconv.Atoi(v)
+                s = append(s, num)
+        }
     }
 
-    var resSum int
-    for _, v := range res {
-        resSum += v
+    var res int
+    for _, v := range s {
+        res += v
     }
 
-    return resSum
+    return res
 }
 
-func push(stack []int, option string, l int) []int{
-    switch option {
-        case "+":
-            stack = append(stack, stack[l-1] + stack[l - 2])
-        case "D":
-            stack = append(stack, stack[l-1] * 2)
-        case "C":
-            stack = stack[:l - 1]
-        default:
-            i, _ :=  strconv.Atoi(option)
-            stack = append(stack, i)
-    }
-
-    return stack
-}
+// получать 2 последних значения
+// получать последние значение
+// удалять последние значение
