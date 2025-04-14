@@ -6,13 +6,13 @@
 //   - ofc easy
 
 func containsDuplicate(nums []int) bool {
-    dict := make(map[int]struct{}, len(nums))
+    dict := make(map[int]bool, len(nums))
 
     for _, v := range nums {
-        if _, ok := dict[v]; ok {
+        if dict[v] {
             return true 
         }
-        dict[v] = struct{}{}
+        dict[v] = true
     }
 
     return false
