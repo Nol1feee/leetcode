@@ -9,7 +9,7 @@
 //   - изи, можно на собесе стажеру/джуну дать
 
 func twoSum(nums []int, target int) []int {
-    dict := make(map[int]int)
+    dict := make(map[int]int, len(nums))
     for i, v := range nums {
         if index, ok := dict[target - v]; ok {
             return []int{index, i}
